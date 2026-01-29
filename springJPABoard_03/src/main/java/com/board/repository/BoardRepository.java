@@ -9,5 +9,6 @@ import com.board.domain.Board;
 public interface BoardRepository extends JpaRepository<Board, Long>{
 
 	List<Board> findByContentContaining(String keyword);
+	List<Board> findByWriterContaining(String keyword);
 
 }
