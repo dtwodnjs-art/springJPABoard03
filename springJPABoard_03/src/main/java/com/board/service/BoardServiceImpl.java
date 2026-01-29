@@ -51,4 +51,14 @@ public class BoardServiceImpl implements BoardService{
 	        return boardList;
 	    }
 
+	 @Override
+	    @Transactional
+	    public int modify(Board b) throws Exception {
+	        Board board = boardRepository.getReferenceById(b.getNo());
+	        board.setTitle(b.getTitle());
+	        board.setContent(b.getContent());
+	        board.setWriter(b.getWriter());
+	        return (board != null) ? 1 : 0;
+	    }
+
 }
