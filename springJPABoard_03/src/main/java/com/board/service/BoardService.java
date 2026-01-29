@@ -13,5 +13,7 @@ public interface BoardService {
 
 	public int remove(Board board) throws Exception;
 
+	public List<Board> list() throws Exception;
+
 
 }
