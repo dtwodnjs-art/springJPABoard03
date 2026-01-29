@@ -29,4 +29,16 @@ public class BoardServiceImpl implements BoardService{
 	        return boardRepository.getReferenceById(board.getNo());
 	}
 
+	 @Override
+	    @Transactional
+	    public int remove(Board board) throws Exception {
+	        int count = 0;
+	        try {
+	        	boardRepository.deleteById(board.getNo());
+			} catch (Exception e) {
+				log.info(e.toString());
+			}
+	        return count;
+	    }
+
 }
