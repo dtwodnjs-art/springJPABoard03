@@ -61,4 +61,20 @@ public class BoardServiceImpl implements BoardService{
 	        return (board != null) ? 1 : 0;
 	    }
 
+	 @Override
+	 @Transactional(readOnly = true)
+	 public List<Board> search(String searchType, String keyword){
+		if (searchType.equals("content")) {
+			return boardRepository.findByContentContaining(keyword);
+			
+		} else if(searchType.equals("writer")){
+			return boardRepository.findByWriterContaining(keyword);
+
+		}else if (searchType.equals("title")) {
+			return boardRepository.findByTitleContaining(keyword);
+		}else {
+			return boardRepository.findByTitleContaining(keyword);
+		}
+	 }
+
 }
